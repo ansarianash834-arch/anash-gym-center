@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anash Gym Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background-color: #1a1a1a;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            border-bottom: 2px solid #ff4500;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ff4500;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff4500;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80') center/cover;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #ff4500;
+        }
+
+        .hero p {
+            color: #cccccc;
+            max-width: 550px;
+            margin: 0 auto 25px auto;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #ff4500;
+            color: #ffffff;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e03e00;
+            transform: scale(1.04);
+        }
+
+        /* Common Section */
+        section {
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #ff4500;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Grid & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #1c1c1c;
+            padding: 25px 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: #ff4500;
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #ff4500;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .price span {
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Interactive Tools (BMI + Form) */
+        .interactive-box {
+            background-color: #1c1c1c;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            max-width: 480px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #111;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 5px;
+            background-color: #262626;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            border-top: 1px solid #222;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Anash <span>Gym Center</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#plans">Plans</a></li>
+                <li><a href="#bmi">BMI Check</a></li>
+                <li><a href="#join">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero" id="home">
+        <h1>Welcome to <span>Anash Gym Center</span></h1>
+        <p>No Excuses, Only Results! Modern machines aur best environment ke saath apni body aur strength banayein.</p>
+        <a href="#join" class="btn">Join Admission Open 🔥</a>
+    </div>
+
+    <!-- Facilities -->
+    <section>
+        <h2 class="section-title">Gym Facilities</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🏋️‍♂️ Heavy Weights</h3>
+                <p>Dumbbells, Barbells, Squat Rack aur Bench Press muscle building ke liye.</p>
+            </div>
+            <div class="card">
+                <h3>🏃‍♂️ Cardio Section</h3>
+                <p>Treadmill, Spin Bikes aur Cross Trainers stamina aur fat loss ke liye.</p>
+            </div>
+            <div class="card">
+                <h3>🥊 Boxing & Fitness</h3>
+                <p>Punching bags, core workout zone aur personal guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Plans -->
+    <section id="plans">
+        <h2 class="section-title">Membership Plans</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>1 Month Plan</h3>
+                <div class="price">₹800 <span>/ month</span></div>
+                <p>✔️ Full Gym Access</p>
+                <p>✔️ General Training</p>
+                <br>
+                <a href="#join" class="btn" onclick="selectPlan('1 Month (₹800)')">Select Plan</a>
+            </div>
+            <div class="card" style="border-color: #ff4500;">
+                <h3>3 Months Plan ⭐</h3>
+                <div class="price">₹2,000 <span>/ 3 months</span></div>
+                <p>✔️ Full Gym + Cardio</p>
+                <p>✔️ Free Diet Chart</p>
+                <br>
+                <a href="#join" class="btn" onclick="selectPlan('3 Months (₹2000)')">Select Plan</a>
+            </div>
+            <div class="card">
+                <h3>1 Year Plan</h3>
+                <div class="price">₹7,000 <span>/ year</span></div>
+                <p>✔️ All Facilities</p>
+                <p>✔️ Personal Guidance</p>
+                <br>
+                <a href="#join" class="btn" onclick="selectPlan('1 Year (₹7000)')">Select Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Working BMI Calculator -->
+    <section id="bmi">
+        <h2 class="section-title">Check Your Fitness (BMI)</h2>
+        <div class="interactive-box">
+            <div class="form-group">
+                <label>Apna Weight daalein (kg mein):</label>
+                <input type="number" id="weight" placeholder="Ex: 60">
+            </div>
+            <div class="form-group">
+                <label>Apni Height daalein (cm mein):</label>
+                <input type="number" id="height" placeholder="Ex: 170">
+            </div>
+            <button class="btn" style="width: 100%;" onclick="calculateBMI()">Calculate BMI</button>
+            <div id="bmiResult" class="result-box"></div>
+        </div>
+    </section>
+
+    <!-- Working Admission Form -->
+    <section id="join">
+        <h2 class="section-title">Online Gym Registration</h2>
+        <div class="interactive-box">
+            <div class="form-group">
+                <label>Full Name:</label>
+                <input type="text" id="memberName" placeholder="Apna naam likhein">
+            </div>
+            <div class="form-group">
+                <label>Phone Number:</label>
+                <input type="number" id="memberPhone" placeholder="10-digit mobile number">
+            </div>
+            <div class="form-group">
+                <label>Select Plan:</label>
+                <select id="memberPlan">
+                    <option value="1 Month (₹800)">1 Month - ₹800</option>
+                    <option value="3 Months (₹2000)">3 Months - ₹2000 (Popular)</option>
+                    <option value="1 Year (₹7000)">1 Year - ₹7000</option>
+                </select>
+            </div>
+            <button class="btn" style="width: 100%;" onclick="submitForm()">Submit Registration ✅</button>
+            <div id="formResult" class="result-box"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>📍 Address: Main Road, Anash Gym Center | 📞 Timing: 5:30 AM - 10:00 PM</p>
+        <p>&copy; 2026 Anash Gym Center. Designed with 💪</p>
+    </footer>
+
+    <!-- JavaScript for Working Features -->
+    <script>
+        function selectPlan(planName) {
+            document.getElementById('memberPlan').value = planName;
+        }
+
+        function calculateBMI() {
+            let weight = parseFloat(document.getElementById('weight').value);
+            let heightCm = parseFloat(document.getElementById('height').value);
+            let resultBox = document.getElementById('bmiResult');
+
+            if (!weight || !heightCm || heightCm <= 0) {
+                resultBox.style.display = 'block';
+                resultBox.style.color = '#ff4500';
+                resultBox.innerHTML = '⚠️ Kripya Weight aur Height sahi se daalein!';
+                return;
+            }
+
+            let heightM = heightCm / 100;
+            let bmi = (weight / (heightM * heightM)).toFixed(1);
+            let status = '';
+
+            if (bmi < 18.5) {
+                status = 'Underweight (Weight Gain Plan join karein 💪)';
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                status = 'Fit & Normal (Muscle Building shuru karein 🔥)';
+            } else {
+                status = 'Overweight (Cardio & Fat Loss Plan join karein 🏃‍♂️)';
+            }
+
+            resultBox.style.display = 'block';
+            resultBox.style.color = '#00ff88';
+            resultBox.innerHTML = `Aapka BMI: ${bmi} <br> Status: ${status}`;
+        }
+
+        function submitForm() {
+            let name = document.getElementById('memberName').value.trim();
+            let phone = document.getElementById('memberPhone').value.trim();
+            let plan = document.getElementById('memberPlan').value;
+            let formResult = document.getElementById('formResult');
+
+            if (name === '' || phone === '') {
+                formResult.style.display = 'block';
+                formResult.style.color = '#ff4500';
+                formResult.innerHTML = '⚠️ Kripya apna Naam aur Phone Number zaroor bharein!';
+                return;
+            }
+
+            formResult.style.display = 'block';
+            formResult.style.color = '#00ff88';
+            formResult.innerHTML = `🎉 Welcome ${name}! <br> Anash Gym Center mein aapka "${plan}" ke liye registration note ho gaya hai.`;
+        }
+    </script>
+
+</body>
+</html>
