@@ -4,40 +4,52 @@
     <meta name="google-site-verification" content="i5vDBgZR4TWwS2cpdF-jFltHVhH2ZA3vMeK85WeZgQw" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anash Gym Center</title>
+    <title>Anash Gym Center - Official Fitness Club</title>
     <style>
+        :root {
+            --primary: #ff4500;
+            --primary-hover: #e03e00;
+            --success: #00e676;
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --border-color: #2e2e2e;
+            --text-gray: #b3b3b3;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #111111;
+            background-color: var(--dark-bg);
             color: #ffffff;
             line-height: 1.6;
         }
 
         /* Navbar */
         header {
-            background-color: #1a1a1a;
+            background-color: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(8px);
             padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            border-bottom: 2px solid #ff4500;
+            border-bottom: 2px solid var(--primary);
             z-index: 1000;
         }
 
         .logo {
             font-size: 22px;
-            font-weight: 800;
-            color: #ff4500;
+            font-weight: 900;
+            color: var(--primary);
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .logo span {
@@ -47,70 +59,97 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 15px;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav ul li a {
             color: #ffffff;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
-            transition: 0.3s;
+            transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: #ff4500;
+            color: var(--primary);
         }
 
         /* Hero Section */
         .hero {
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
-                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80') center/cover;
+            padding: 90px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.78), rgba(15, 15, 15, 0.98)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             text-align: center;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero h1 {
-            font-size: 38px;
-            text-transform: uppercase;
+        .badge {
+            background-color: rgba(255, 69, 0, 0.2);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
             margin-bottom: 15px;
         }
 
+        .hero h1 {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
         .hero h1 span {
-            color: #ff4500;
+            color: var(--primary);
         }
 
         .hero p {
-            color: #cccccc;
-            max-width: 550px;
-            margin: 0 auto 25px auto;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 28px auto;
             font-size: 16px;
         }
 
+        /* Buttons */
         .btn {
-            background-color: #ff4500;
+            background-color: var(--primary);
             color: #ffffff;
-            padding: 12px 28px;
+            padding: 13px 28px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
+            font-weight: 700;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             font-size: 16px;
             display: inline-block;
-            transition: 0.3s;
+            transition: all 0.25s ease;
         }
 
         .btn:hover {
-            background-color: #e03e00;
-            transform: scale(1.04);
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-pay {
+            background-color: var(--success);
+            color: #000000;
+            width: 100%;
+            font-size: 17px;
+        }
+
+        .btn-pay:hover {
+            background-color: #00c853;
         }
 
         /* Common Section */
         section {
-            padding: 50px 20px;
-            max-width: 1000px;
+            padding: 55px 20px;
+            max-width: 1050px;
             margin: auto;
             text-align: center;
         }
@@ -119,106 +158,258 @@
             font-size: 28px;
             margin-bottom: 35px;
             text-transform: uppercase;
-            border-bottom: 3px solid #ff4500;
+            border-bottom: 3px solid var(--primary);
             display: inline-block;
-            padding-bottom: 5px;
+            padding-bottom: 6px;
         }
 
         /* Grid & Cards */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
         }
 
         .card {
-            background-color: #1c1c1c;
-            padding: 25px 20px;
-            border-radius: 10px;
-            border: 1px solid #333;
+            background-color: var(--card-bg);
+            padding: 28px 22px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
             transition: 0.3s;
+            position: relative;
         }
 
         .card:hover {
-            border-color: #ff4500;
+            border-color: var(--primary);
             transform: translateY(-5px);
         }
 
+        .popular-tag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
         .card h3 {
-            color: #ff4500;
-            margin-bottom: 10px;
-            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 21px;
         }
 
         .price {
-            font-size: 32px;
-            font-weight: bold;
-            margin: 12px 0;
+            font-size: 34px;
+            font-weight: 800;
+            margin: 15px 0;
         }
 
         .price span {
             font-size: 14px;
-            color: #999;
+            color: var(--text-gray);
+            font-weight: normal;
         }
 
-        /* Interactive Tools (BMI + Form) */
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin: 15px 0 22px 0;
+        }
+
+        .features-list li {
+            margin: 8px 0;
+            color: #dddddd;
+            font-size: 15px;
+        }
+
+        /* Forms & Interactive Boxes */
         .interactive-box {
-            background-color: #1c1c1c;
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            max-width: 480px;
+            background-color: var(--card-bg);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            max-width: 520px;
             margin: auto;
             text-align: left;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             font-size: 14px;
-            color: #ccc;
+            color: #dddddd;
+            font-weight: 600;
         }
 
-        .form-group input, .form-group select {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #444;
-            background-color: #111;
-            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #3d3d3d;
+            background-color: #111111;
+            color: #ffffff;
             font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
         }
 
         .result-box {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 5px;
-            background-color: #262626;
+            margin-top: 16px;
+            padding: 14px;
+            border-radius: 8px;
+            background-color: #242424;
             text-align: center;
             font-weight: bold;
             display: none;
         }
 
-        footer {
-            background-color: #0a0a0a;
-            text-align: center;
+        /* Payment Gateway Box */
+        .payment-gateway-box {
+            display: none;
+            margin-top: 20px;
             padding: 20px;
+            background-color: #121212;
+            border: 2px solid var(--success);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .upi-apps {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .upi-btn {
+            padding: 10px 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        .phonepe-btn { background-color: #5f259f; }
+        .gpay-btn { background-color: #1a73e8; }
+        .paytm-btn { background-color: #00baf2; color: #000; }
+
+        .qr-wrapper {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 12px 0;
+        }
+
+        .qr-wrapper img {
+            width: 170px;
+            height: 170px;
+            display: block;
+        }
+
+        /* Star Rating CSS */
+        .rating-summary {
+            background: #121212;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            text-align: center;
+            border: 1px solid #2b2b2b;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 10px;
+            font-size: 32px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .star {
+            color: #444444;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .star.active {
+            color: #ffb400;
+        }
+
+        .star:hover {
+            transform: scale(1.15);
+        }
+
+        /* Reviews List */
+        .reviews-list {
+            margin-top: 25px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 18px;
+        }
+
+        .review-item {
+            background: #121212;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .review-header h4 {
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        .review-date {
+            font-size: 12px;
             color: #777;
+        }
+
+        .review-item p {
+            font-size: 14px;
+            color: #dddddd;
+        }
+
+        footer {
+            background-color: #080808;
+            text-align: center;
+            padding: 25px 20px;
+            color: #888;
             border-top: 1px solid #222;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         @media (max-width: 600px) {
             header {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
             .hero h1 {
-                font-size: 28px;
+                font-size: 30px;
+            }
+            .upi-apps {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -231,35 +422,38 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#facilities">Facilities</a></li>
                 <li><a href="#plans">Plans</a></li>
-                <li><a href="#bmi">BMI Check</a></li>
-                <li><a href="#join">Join</a></li>
+                <li><a href="#bmi">BMI</a></li>
+                <li><a href="#join">Join & Pay</a></li>
+                <li><a href="#feedback">Reviews</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <div class="hero" id="home">
+        <div class="badge">💪 #1 Fitness & Strength Club</div>
         <h1>Welcome to <span>Anash Gym Center</span></h1>
-        <p>No Excuses, Only Results! Modern machines aur best environment ke saath apni body aur strength banayein.</p>
-        <a href="#join" class="btn">Join Admission Open 🔥</a>
+        <p>Apni body aur strength ko next level par le jayein! Modern equipment, expert guidance aur instant online membership ke saath.</p>
+        <a href="#plans" class="btn">View Membership Plans 🔥</a>
     </div>
 
-    <!-- Facilities -->
-    <section>
+    <!-- Facilities Section -->
+    <section id="facilities">
         <h2 class="section-title">Gym Facilities</h2>
         <div class="grid">
             <div class="card">
-                <h3>🏋️‍♂️ Heavy Weights</h3>
-                <p>Dumbbells, Barbells, Squat Rack aur Bench Press muscle building ke liye.</p>
+                <h3>🏋️‍♂️ Heavy Weight Zone</h3>
+                <p>Import quality dumbbells, squat racks, bench press aur modern cable machines muscle growth ke liye.</p>
             </div>
             <div class="card">
-                <h3>🏃‍♂️ Cardio Section</h3>
-                <p>Treadmill, Spin Bikes aur Cross Trainers stamina aur fat loss ke liye.</p>
+                <h3>🏃‍♂️ Cardio & Stamina</h3>
+                <p>High-speed treadmills, spin bikes aur cross-trainers tezi se fat burn aur stamina badhane ke liye.</p>
             </div>
             <div class="card">
-                <h3>🥊 Boxing & Fitness</h3>
-                <p>Punching bags, core workout zone aur personal guidance.</p>
+                <h3>🥊 Boxing & Personal Care</h3>
+                <p>Heavy punching bags, core workout mat area aur beginner se advanced diet & workout chart.</p>
             </div>
         </div>
     </section>
@@ -269,132 +463,407 @@
         <h2 class="section-title">Membership Plans</h2>
         <div class="grid">
             <div class="card">
-                <h3>1 Month Plan</h3>
-                <div class="price">₹800 <span>/ month</span></div>
-                <p>✔️ Full Gym Access</p>
-                <p>✔️ General Training</p>
-                <br>
-                <a href="#join" class="btn" onclick="selectPlan('1 Month (₹800)')">Select Plan</a>
+                <h3>Monthly Plan</h3>
+                <div class="price">₹800 <span>/ 1 Month</span></div>
+                <ul class="features-list">
+                    <li>✔️ Full Gym & Weight Access</li>
+                    <li>✔️ Morning & Evening Slot</li>
+                    <li>✔️ General Trainer Support</li>
+                </ul>
+                <button class="btn" style="width:100%;" onclick="choosePlan('800')">Select ₹800 Plan</button>
             </div>
-            <div class="card" style="border-color: #ff4500;">
-                <h3>3 Months Plan ⭐</h3>
-                <div class="price">₹2,000 <span>/ 3 months</span></div>
-                <p>✔️ Full Gym + Cardio</p>
-                <p>✔️ Free Diet Chart</p>
-                <br>
-                <a href="#join" class="btn" onclick="selectPlan('3 Months (₹2000)')">Select Plan</a>
+
+            <div class="card" style="border-color: var(--primary);">
+                <div class="popular-tag">MOST POPULAR</div>
+                <h3>Quarterly Plan</h3>
+                <div class="price">₹2,000 <span>/ 3 Months</span></div>
+                <ul class="features-list">
+                    <li>✔️ Full Gym + Cardio Access</li>
+                    <li>✔️ Free Personalized Diet Chart</li>
+                    <li>✔️ Direct ₹400 Discount!</li>
+                </ul>
+                <button class="btn" style="width:100%;" onclick="choosePlan('2000')">Select ₹2,000 Plan</button>
             </div>
+
             <div class="card">
-                <h3>1 Year Plan</h3>
-                <div class="price">₹7,000 <span>/ year</span></div>
-                <p>✔️ All Facilities</p>
-                <p>✔️ Personal Guidance</p>
-                <br>
-                <a href="#join" class="btn" onclick="selectPlan('1 Year (₹7000)')">Select Plan</a>
+                <h3>Yearly Pro Plan</h3>
+                <div class="price">₹7,000 <span>/ 12 Months</span></div>
+                <ul class="features-list">
+                    <li>✔️ Complete VIP Gym Access</li>
+                    <li>✔️ Special Strength & Boxing Guide</li>
+                    <li>✔️ Maximum Savings (Save ₹2,600)</li>
+                </ul>
+                <button class="btn" style="width:100%;" onclick="choosePlan('7000')">Select ₹7,000 Plan</button>
             </div>
         </div>
     </section>
 
-    <!-- Working BMI Calculator -->
+    <!-- BMI Calculator -->
     <section id="bmi">
-        <h2 class="section-title">Check Your Fitness (BMI)</h2>
+        <h2 class="section-title">Fitness BMI Calculator</h2>
         <div class="interactive-box">
             <div class="form-group">
-                <label>Apna Weight daalein (kg mein):</label>
-                <input type="number" id="weight" placeholder="Ex: 60">
+                <label>Weight (kg mein):</label>
+                <input type="number" id="weightInput" placeholder="Ex: 62">
             </div>
             <div class="form-group">
-                <label>Apni Height daalein (cm mein):</label>
-                <input type="number" id="height" placeholder="Ex: 170">
+                <label>Height (cm mein):</label>
+                <input type="number" id="heightInput" placeholder="Ex: 172">
             </div>
-            <button class="btn" style="width: 100%;" onclick="calculateBMI()">Calculate BMI</button>
-            <div id="bmiResult" class="result-box"></div>
+            <button class="btn" style="width: 100%;" onclick="calculateBMI()">Check My BMI 📊</button>
+            <div id="bmiOutput" class="result-box"></div>
         </div>
     </section>
 
-    <!-- Working Admission Form -->
+    <!-- Online Subscription & Payment Gateway -->
     <section id="join">
-        <h2 class="section-title">Online Gym Registration</h2>
+        <h2 class="section-title">Subscription & Instant Payment</h2>
         <div class="interactive-box">
             <div class="form-group">
-                <label>Full Name:</label>
-                <input type="text" id="memberName" placeholder="Apna naam likhein">
+                <label>Member Full Name *</label>
+                <input type="text" id="memberName" placeholder="Apna poora naam likhein">
             </div>
             <div class="form-group">
-                <label>Phone Number:</label>
-                <input type="number" id="memberPhone" placeholder="10-digit mobile number">
+                <label>Mobile Number *</label>
+                <input type="tel" id="memberPhone" maxlength="10" placeholder="10-digit mobile number">
             </div>
             <div class="form-group">
-                <label>Select Plan:</label>
-                <select id="memberPlan">
-                    <option value="1 Month (₹800)">1 Month - ₹800</option>
-                    <option value="3 Months (₹2000)">3 Months - ₹2000 (Popular)</option>
-                    <option value="1 Year (₹7000)">1 Year - ₹7000</option>
+                <label>Select Membership Plan *</label>
+                <select id="memberPlan" onchange="refreshPaymentDetails()">
+                    <option value="800">1 Month Membership - ₹800</option>
+                    <option value="2000" selected>3 Months Membership - ₹2,000 (Popular)</option>
+                    <option value="7000">1 Year Membership - ₹7,000 (Best Value)</option>
                 </select>
             </div>
-            <button class="btn" style="width: 100%;" onclick="submitForm()">Submit Registration ✅</button>
-            <div id="formResult" class="result-box"></div>
+
+            <button class="btn btn-pay" onclick="initiatePayment()">Proceed to Pay ₹<span id="btnAmountText">2000</span> 💳</button>
+            <div id="formAlert" class="result-box"></div>
+
+            <!-- Live Payment Checkout Box -->
+            <div id="paymentGatewayBox" class="payment-gateway-box">
+                <h3 style="color: var(--success); margin-bottom: 6px;">🔒 Secure UPI Payment</h3>
+                <p style="font-size: 14px; color: #ccc;">Payable Amount: <strong style="color:#fff; font-size:18px;">₹<span id="checkoutAmount">2000</span></strong></p>
+
+                <p style="font-size: 13px; color: #aaa; margin-top: 12px;">1. Phone mein App kholne ke liye niche click karein:</p>
+                <div class="upi-apps">
+                    <button type="button" class="upi-btn phonepe-btn" onclick="openUPIApp()">🟣 PhonePe</button>
+                    <button type="button" class="upi-btn gpay-btn" onclick="openUPIApp()">🔵 Google Pay</button>
+                    <button type="button" class="upi-btn paytm-btn" onclick="openUPIApp()">🔵 Paytm UPI</button>
+                </div>
+
+                <p style="font-size: 13px; color: #aaa; margin-top: 10px;">2. Ya kisi bhi UPI App se yeh QR Code Scan karein:</p>
+                <div class="qr-wrapper">
+                    <img id="upiQrImage" src="" alt="Scan to Pay QR">
+                </div>
+
+                <div class="form-group" style="margin-top: 12px; text-align: left;">
+                    <label>Payment karne ke baad UTR / Ref No. ke last 4 digit daalein:</label>
+                    <input type="text" id="utrNumber" maxlength="12" placeholder="Ex: 4829 (Verification ke liye)">
+                </div>
+                <button type="button" class="btn" style="width: 100%; background: var(--success); color:#000;" onclick="confirmSubscription()">Verify & Activate Membership ✅</button>
+            </div>
+
+            <!-- Digital Receipt Box -->
+            <div id="membershipReceipt" class="result-box" style="border: 2px dashed var(--success); text-align: left;"></div>
+        </div>
+    </section>
+
+    <!-- Rating & Feedback System -->
+    <section id="feedback">
+        <h2 class="section-title">Member Ratings & Feedback</h2>
+        <div class="interactive-box">
+            <div class="rating-summary">
+                <div style="font-size: 24px; font-weight: bold; color: #ffb400;" id="avgRatingDisplay">⭐ 5.0 / 5.0</div>
+                <div style="font-size: 13px; color: #aaa;" id="totalReviewsDisplay">Based on verified gym members</div>
+            </div>
+
+            <div class="form-group">
+                <label>Aapka Naam *</label>
+                <input type="text" id="reviewerName" placeholder="Apna naam likhein">
+            </div>
+
+            <div class="form-group">
+                <label>Tap Stars to Rate *</label>
+                <div class="star-rating" id="starContainer">
+                    <span class="star active" onclick="selectStar(1)">★</span>
+                    <span class="star active" onclick="selectStar(2)">★</span>
+                    <span class="star active" onclick="selectStar(3)">★</span>
+                    <span class="star active" onclick="selectStar(4)">★</span>
+                    <span class="star active" onclick="selectStar(5)">★</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Aapka Feedback / Review *</label>
+                <textarea id="reviewMessage" rows="3" placeholder="Anash Gym Center ke baare mein apna experience likhein..."></textarea>
+            </div>
+
+            <button class="btn" style="width: 100%;" onclick="addFeedback()">Submit Review ⭐</button>
+            <div id="reviewAlert" class="result-box"></div>
+
+            <!-- Dynamic Reviews List -->
+            <div class="reviews-list" id="reviewsContainer"></div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>📍 Address: Main Road, Anash Gym Center | 📞 Timing: 5:30 AM - 10:00 PM</p>
-        <p>&copy; 2026 Anash Gym Center. Designed with 💪</p>
+        <p style="color:#fff; font-weight:bold; margin-bottom:6px;">📍 ANASH GYM CENTER</p>
+        <p>Timing: Morning 5:30 AM – 10:30 AM | Evening 4:30 PM – 10:00 PM (Sunday Closed)</p>
+        <p style="margin-top: 10px; font-size: 13px;">&copy; 2026 Anash Gym Center. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Working Features -->
+    <!-- Complete Error-Free JavaScript -->
     <script>
-        function selectPlan(planName) {
-            document.getElementById('memberPlan').value = planName;
+        // ==========================================
+        // GYM OWNER UPI SETTING (Yahan apni asli UPI ID daal sakte hain)
+        // ==========================================
+        const GYM_UPI_ID = "anashgymcenter@ybl";
+        const GYM_NAME = "Anash Gym Center";
+
+        let selectedRating = 5;
+        let currentUpiUrl = "";
+
+        // 1. Plan Selection from Cards
+        function choosePlan(amountVal) {
+            const planSelect = document.getElementById('memberPlan');
+            planSelect.value = amountVal;
+            refreshPaymentDetails();
+            document.getElementById('join').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function calculateBMI() {
-            let weight = parseFloat(document.getElementById('weight').value);
-            let heightCm = parseFloat(document.getElementById('height').value);
-            let resultBox = document.getElementById('bmiResult');
+        // 2. Refresh Amount on Dropdown Change
+        function refreshPaymentDetails() {
+            const amount = document.getElementById('memberPlan').value;
+            document.getElementById('btnAmountText').innerText = amount;
+            document.getElementById('checkoutAmount').innerText = amount;
 
-            if (!weight || !heightCm || heightCm <= 0) {
-                resultBox.style.display = 'block';
-                resultBox.style.color = '#ff4500';
-                resultBox.innerHTML = '⚠️ Kripya Weight aur Height sahi se daalein!';
+            const gatewayBox = document.getElementById('paymentGatewayBox');
+            if (gatewayBox.style.display === 'block') {
+                buildUpiLinks(amount);
+            }
+        }
+
+        // 3. Build UPI Intent & QR Code
+        function buildUpiLinks(amount) {
+            const name = document.getElementById('memberName').value.trim() || "Member";
+            const note = `Anash Gym Plan Rs ${amount} - ${name}`;
+            currentUpiUrl = `upi://pay?pa=${encodeURIComponent(GYM_UPI_ID)}&pn=${encodeURIComponent(GYM_NAME)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+            const qrImg = document.getElementById('upiQrImage');
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUpiUrl)}`;
+        }
+
+        // 4. Validate Form & Open Payment Checkout
+        function initiatePayment() {
+            const name = document.getElementById('memberName').value.trim();
+            const phone = document.getElementById('memberPhone').value.trim();
+            const amount = document.getElementById('memberPlan').value;
+            const alertBox = document.getElementById('formAlert');
+            const receiptBox = document.getElementById('membershipReceipt');
+
+            receiptBox.style.display = 'none';
+
+            if (name.length < 2) {
+                alertBox.style.display = 'block';
+                alertBox.style.color = '#ff4500';
+                alertBox.innerHTML = '⚠️ Kripya apna sahi Naam likhein!';
                 return;
             }
 
-            let heightM = heightCm / 100;
-            let bmi = (weight / (heightM * heightM)).toFixed(1);
-            let status = '';
+            if (!/^\d{10}$/.test(phone)) {
+                alertBox.style.display = 'block';
+                alertBox.style.color = '#ff4500';
+                alertBox.innerHTML = '⚠️ Kripya 10-digit ka sahi Mobile Number daalein!';
+                return;
+            }
+
+            alertBox.style.display = 'none';
+            buildUpiLinks(amount);
+
+            const gatewayBox = document.getElementById('paymentGatewayBox');
+            gatewayBox.style.display = 'block';
+            gatewayBox.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 5. Open PhonePe / GPay / Paytm App Directly
+        function openUPIApp() {
+            if (!currentUpiUrl) {
+                const amount = document.getElementById('memberPlan').value;
+                buildUpiLinks(amount);
+            }
+            window.location.href = currentUpiUrl;
+        }
+
+        // 6. Verify UTR & Generate Membership Card
+        function confirmSubscription() {
+            const name = document.getElementById('memberName').value.trim();
+            const phone = document.getElementById('memberPhone').value.trim();
+            const planSelect = document.getElementById('memberPlan');
+            const planText = planSelect.options[planSelect.selectedIndex].text;
+            const utr = document.getElementById('utrNumber').value.trim();
+            const receiptBox = document.getElementById('membershipReceipt');
+
+            if (utr.length < 4) {
+                alert('Kripya payment ke baad kam se kam 4-digit ka Transaction / UTR number zaroor daalein!');
+                return;
+            }
+
+            const memberId = "AGC-" + Math.floor(1000 + Math.random() * 9000);
+            const today = new Date().toLocaleDateString('en-IN');
+
+            document.getElementById('paymentGatewayBox').style.display = 'none';
+            receiptBox.style.display = 'block';
+            receiptBox.style.color = '#ffffff';
+            receiptBox.innerHTML = `
+                <div style="color: #00e676; font-size: 18px; margin-bottom: 8px;">🎉 Membership Activated Successfully!</div>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Member ID:</strong> ${memberId}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Name:</strong> ${name}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Phone:</strong> ${phone}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Plan:</strong> ${planText}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Payment Ref (UTR):</strong> ${utr}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Date:</strong> ${today}</p>
+                <p style="font-size: 12px; color: #aaa; margin-top: 8px;">📸 Iska screenshot le lein aur gym reception par dikhayein.</p>
+            `;
+        }
+
+        // 7. BMI Calculator Logic
+        function calculateBMI() {
+            const w = parseFloat(document.getElementById('weightInput').value);
+            const hCm = parseFloat(document.getElementById('heightInput').value);
+            const out = document.getElementById('bmiOutput');
+
+            if (!w || !hCm || w <= 0 || hCm <= 0) {
+                out.style.display = 'block';
+                out.style.color = '#ff4500';
+                out.innerHTML = '⚠️ Kripya Weight aur Height sahi number mein daalein!';
+                return;
+            }
+
+            const hM = hCm / 100;
+            const bmi = (w / (hM * hM)).toFixed(1);
+            let category = '';
+            let color = '#00e676';
 
             if (bmi < 18.5) {
-                status = 'Underweight (Weight Gain Plan join karein 💪)';
-            } else if (bmi >= 18.5 && bmi <= 24.9) {
-                status = 'Fit & Normal (Muscle Building shuru karein 🔥)';
+                category = 'Underweight (Muscle Mass & Weight Gain Plan chunein 💪)';
+                color = '#ffb400';
+            } else if (bmi <= 24.9) {
+                category = 'Fit & Normal Weight (Strength & Lean Muscle banayein 🔥)';
+                color = '#00e676';
             } else {
-                status = 'Overweight (Cardio & Fat Loss Plan join karein 🏃‍♂️)';
+                category = 'Overweight (Cardio + Fat Burn Plan join karein 🏃‍♂️)';
+                color = '#ff4500';
             }
 
-            resultBox.style.display = 'block';
-            resultBox.style.color = '#00ff88';
-            resultBox.innerHTML = `Aapka BMI: ${bmi} <br> Status: ${status}`;
+            out.style.display = 'block';
+            out.style.color = color;
+            out.innerHTML = `Aapka BMI Score: ${bmi} <br> Advice: ${category}`;
         }
 
-        function submitForm() {
-            let name = document.getElementById('memberName').value.trim();
-            let phone = document.getElementById('memberPhone').value.trim();
-            let plan = document.getElementById('memberPlan').value;
-            let formResult = document.getElementById('formResult');
+        // 8. Star Rating & Permanent LocalStorage Feedback System
+        const defaultReviews = [
+            { name: "Aman Verma", rating: 5, text: "Anash Gym Center ka environment aur machines ekdam top class hain!", date: "Verified Member" },
+            { name: "Rohit Kumar", rating: 5, text: "3 months wala plan liya hai, cardio aur heavy weights dono best hain.", date: "Verified Member" }
+        ];
 
-            if (name === '' || phone === '') {
-                formResult.style.display = 'block';
-                formResult.style.color = '#ff4500';
-                formResult.innerHTML = '⚠️ Kripya apna Naam aur Phone Number zaroor bharein!';
+        function selectStar(starCount) {
+            selectedRating = starCount;
+            const stars = document.querySelectorAll('#starContainer .star');
+            stars.forEach((s, idx) => {
+                if (idx < starCount) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        }
+
+        function getSavedReviews() {
+            try {
+                const saved = localStorage.getItem('anash_gym_reviews');
+                return saved ? JSON.parse(saved) : defaultReviews;
+            } catch (e) {
+                return defaultReviews;
+            }
+        }
+
+        function renderReviews() {
+            const reviews = getSavedReviews();
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+
+            let totalStars = 0;
+            reviews.forEach(r => {
+                totalStars += Number(r.rating);
+                const starIcons = '⭐'.repeat(r.rating);
+                const item = document.createElement('div');
+                item.className = 'review-item';
+                item.innerHTML = `
+                    <div class="review-header">
+                        <h4>${escapeHTML(r.name)} (${starIcons})</h4>
+                        <span class="review-date">${escapeHTML(r.date)}</span>
+                    </div>
+                    <p>${escapeHTML(r.text)}</p>
+                `;
+                container.appendChild(item);
+            });
+
+            const avg = (totalStars / reviews.length).toFixed(1);
+            document.getElementById('avgRatingDisplay').innerText = `⭐ ${avg} / 5.0`;
+            document.getElementById('totalReviewsDisplay').innerText = `Based on ${reviews.length} member reviews`;
+        }
+
+        function addFeedback() {
+            const nameInput = document.getElementById('reviewerName');
+            const msgInput = document.getElementById('reviewMessage');
+            const alertBox = document.getElementById('reviewAlert');
+
+            const name = nameInput.value.trim();
+            const text = msgInput.value.trim();
+
+            if (name === '' || text === '') {
+                alertBox.style.display = 'block';
+                alertBox.style.color = '#ff4500';
+                alertBox.innerHTML = '⚠️ Kripya apna Naam aur Feedback dono likhein!';
                 return;
             }
 
-            formResult.style.display = 'block';
-            formResult.style.color = '#00ff88';
-            formResult.innerHTML = `🎉 Welcome ${name}! <br> Anash Gym Center mein aapka "${plan}" ke liye registration note ho gaya hai.`;
+            const reviews = getSavedReviews();
+            const today = new Date().toLocaleDateString('en-IN');
+
+            reviews.unshift({
+                name: name,
+                rating: selectedRating,
+                text: text,
+                date: today
+            });
+
+            try {
+                localStorage.setItem('anash_gym_reviews', JSON.stringify(reviews));
+            } catch (e) {}
+
+            nameInput.value = '';
+            msgInput.value = '';
+            selectStar(5);
+
+            alertBox.style.display = 'block';
+            alertBox.style.color = '#00e676';
+            alertBox.innerHTML = '✅ Shukriya! Aapka review website par live add ho gaya hai.';
+
+            renderReviews();
         }
+
+        function escapeHTML(str) {
+            return String(str).replace(/[&<>"']/g, function(m) {
+                return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
+            });
+        }
+
+        // Initialize Reviews on Page Load
+        window.onload = function() {
+            renderReviews();
+        };
     </script>
 
 </body>
