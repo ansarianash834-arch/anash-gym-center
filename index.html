@@ -4,16 +4,16 @@
     <meta name="google-site-verification" content="i5vDBgZR4TWwS2cpdF-jFltHVhH2ZA3vMeK85WeZgQw" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anash Gym Center - Official Fitness Club</title>
+    <title>Anash Gym Center - Luxury Fitness & Strength Club</title>
     <style>
         :root {
             --primary: #ff4500;
             --primary-hover: #e03e00;
             --success: #00e676;
-            --dark-bg: #0f0f0f;
-            --card-bg: #1a1a1a;
-            --border-color: #2e2e2e;
-            --text-gray: #b3b3b3;
+            --dark-bg: #0b0b0b;
+            --card-bg: #161616;
+            --border-color: #2a2a2a;
+            --text-gray: #b0b0b0;
         }
 
         * {
@@ -32,8 +32,8 @@
 
         /* Navbar */
         header {
-            background-color: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(8px);
+            background-color: rgba(15, 15, 15, 0.96);
+            backdrop-filter: blur(10px);
             padding: 15px 25px;
             display: flex;
             justify-content: space-between;
@@ -45,7 +45,7 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 23px;
             font-weight: 900;
             color: var(--primary);
             text-transform: uppercase;
@@ -78,8 +78,8 @@
 
         /* Hero Section */
         .hero {
-            padding: 90px 20px;
-            background: linear-gradient(rgba(0, 0, 0, 0.78), rgba(15, 15, 15, 0.98)), 
+            padding: 95px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(11, 11, 11, 0.98)), 
                         url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
@@ -89,16 +89,18 @@
             background-color: rgba(255, 69, 0, 0.2);
             color: var(--primary);
             border: 1px solid var(--primary);
-            padding: 5px 14px;
+            padding: 6px 16px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: bold;
             display: inline-block;
             margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 40px;
+            font-size: 42px;
             text-transform: uppercase;
             margin-bottom: 15px;
             line-height: 1.2;
@@ -110,9 +112,44 @@
 
         .hero p {
             color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto 28px auto;
+            max-width: 620px;
+            margin: 0 auto 30px auto;
             font-size: 16px;
+        }
+
+        /* Stats Strip */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            max-width: 900px;
+            margin: -35px auto 20px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-box {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-bottom: 3px solid var(--primary);
+            padding: 15px 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        .stat-box h3 {
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .stat-box p {
+            font-size: 12px;
+            color: #ccc;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
         /* Buttons */
@@ -148,32 +185,131 @@
 
         /* Common Section */
         section {
-            padding: 55px 20px;
-            max-width: 1050px;
+            padding: 60px 20px;
+            max-width: 1120px;
             margin: auto;
             text-align: center;
         }
 
         .section-title {
-            font-size: 28px;
-            margin-bottom: 35px;
+            font-size: 30px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             border-bottom: 3px solid var(--primary);
             display: inline-block;
             padding-bottom: 6px;
         }
 
-        /* Grid & Cards */
+        .section-subtitle {
+            color: var(--text-gray);
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* VIP Facilities Grid */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 25px;
+        }
+
+        .facility-card {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            text-align: left;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .facility-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(255, 69, 0, 0.15);
+        }
+
+        .facility-img-box {
+            position: relative;
+            height: 190px;
+            width: 100%;
+            overflow: hidden;
+            background: #222;
+        }
+
+        .facility-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .facility-card:hover .facility-img-box img {
+            transform: scale(1.08);
+        }
+
+        .facility-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.85);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .facility-content {
+            padding: 22px;
+            flex: 1;
+        }
+
+        .facility-content h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .facility-content p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .facility-specs {
+            list-style: none;
+            border-top: 1px solid #262626;
+            padding-top: 12px;
+        }
+
+        .facility-specs li {
+            font-size: 13px;
+            color: #dddddd;
+            margin: 5px 0;
+        }
+
+        .facility-specs li span {
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        /* Membership Plans Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 24px;
         }
 
         .card {
             background-color: var(--card-bg);
-            padding: 28px 22px;
-            border-radius: 12px;
+            padding: 30px 22px;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
             transition: 0.3s;
             position: relative;
@@ -192,18 +328,18 @@
             color: #fff;
             font-size: 12px;
             font-weight: bold;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 12px;
         }
 
         .card h3 {
             color: var(--primary);
             margin-bottom: 12px;
-            font-size: 21px;
+            font-size: 22px;
         }
 
         .price {
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 800;
             margin: 15px 0;
         }
@@ -217,11 +353,11 @@
         .features-list {
             list-style: none;
             text-align: left;
-            margin: 15px 0 22px 0;
+            margin: 15px 0 24px 0;
         }
 
         .features-list li {
-            margin: 8px 0;
+            margin: 9px 0;
             color: #dddddd;
             font-size: 15px;
         }
@@ -230,9 +366,9 @@
         .interactive-box {
             background-color: var(--card-bg);
             padding: 28px;
-            border-radius: 12px;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
-            max-width: 520px;
+            max-width: 540px;
             margin: auto;
             text-align: left;
         }
@@ -254,7 +390,7 @@
             padding: 12px;
             border-radius: 8px;
             border: 1px solid #3d3d3d;
-            background-color: #111111;
+            background-color: #101010;
             color: #ffffff;
             font-size: 15px;
             outline: none;
@@ -274,12 +410,12 @@
             display: none;
         }
 
-        /* Payment Gateway Box */
+        /* Direct UPI Payment Gateway Box */
         .payment-gateway-box {
             display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #121212;
+            margin-top: 22px;
+            padding: 22px;
+            background-color: #111111;
             border: 2px solid var(--success);
             border-radius: 12px;
             text-align: center;
@@ -287,46 +423,78 @@
 
         .upi-apps {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
             margin: 15px 0;
         }
 
         .upi-btn {
-            padding: 10px 8px;
+            padding: 13px 10px;
             border-radius: 8px;
-            font-weight: bold;
-            font-size: 13px;
-            color: #fff;
+            font-weight: 800;
+            font-size: 14px;
+            color: #ffffff;
             text-decoration: none;
-            display: block;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             cursor: pointer;
             border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+        }
+
+        .upi-btn:active {
+            transform: scale(0.97);
         }
 
         .phonepe-btn { background-color: #5f259f; }
         .gpay-btn { background-color: #1a73e8; }
-        .paytm-btn { background-color: #00baf2; color: #000; }
+        .paytm-btn { background-color: #00baf2; color: #000000; }
+        .any-upi-btn { background-color: #ff6d00; color: #ffffff; }
+
+        .upi-id-bar {
+            background: #1d1d1d;
+            border: 1px dashed #555;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
         .qr-wrapper {
             background: #ffffff;
             padding: 12px;
             border-radius: 10px;
             display: inline-block;
-            margin: 12px 0;
+            margin: 10px 0;
         }
 
         .qr-wrapper img {
-            width: 170px;
-            height: 170px;
+            width: 175px;
+            height: 175px;
             display: block;
         }
 
         /* Star Rating CSS */
         .rating-summary {
-            background: #121212;
-            padding: 12px;
+            background: #111111;
+            padding: 14px;
             border-radius: 8px;
             margin-bottom: 18px;
             text-align: center;
@@ -350,10 +518,6 @@
             color: #ffb400;
         }
 
-        .star:hover {
-            transform: scale(1.15);
-        }
-
         /* Reviews List */
         .reviews-list {
             margin-top: 25px;
@@ -362,7 +526,7 @@
         }
 
         .review-item {
-            background: #121212;
+            background: #111111;
             padding: 14px;
             border-radius: 8px;
             margin-bottom: 12px;
@@ -392,9 +556,9 @@
         }
 
         footer {
-            background-color: #080808;
+            background-color: #060606;
             text-align: center;
-            padding: 25px 20px;
+            padding: 30px 20px;
             color: #888;
             border-top: 1px solid #222;
             margin-top: 40px;
@@ -408,9 +572,6 @@
             .hero h1 {
                 font-size: 30px;
             }
-            .upi-apps {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -422,7 +583,7 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#facilities">VIP Facilities</a></li>
                 <li><a href="#plans">Plans</a></li>
                 <li><a href="#bmi">BMI</a></li>
                 <li><a href="#join">Join & Pay</a></li>
@@ -433,27 +594,138 @@
 
     <!-- Hero Section -->
     <div class="hero" id="home">
-        <div class="badge">💪 #1 Fitness & Strength Club</div>
-        <h1>Welcome to <span>Anash Gym Center</span></h1>
-        <p>Apni body aur strength ko next level par le jayein! Modern equipment, expert guidance aur instant online membership ke saath.</p>
-        <a href="#plans" class="btn">View Membership Plans 🔥</a>
+        <div class="badge">🔥 City's #1 Luxury Fitness Club</div>
+        <h1>Transform Your Body At <span>Anash Gym Center</span></h1>
+        <p>International biomechanics machines, certified personal trainers aur high-energy environment ke saath apni dream physique banayein!</p>
+        <a href="#plans" class="btn">Join Membership Now 💪</a>
     </div>
 
-    <!-- Facilities Section -->
+    <!-- Highlight Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-box">
+            <h3>50+</h3>
+            <p>Imported Machines</p>
+        </div>
+        <div class="stat-box">
+            <h3>500+</h3>
+            <p>Active Members</p>
+        </div>
+        <div class="stat-box">
+            <h3>100%</h3>
+            <p>Result Oriented</p>
+        </div>
+        <div class="stat-box">
+            <h3>4.9 ⭐</h3>
+            <p>Member Rating</p>
+        </div>
+    </div>
+
+    <!-- Top-Level Professional Facilities Section -->
     <section id="facilities">
-        <h2 class="section-title">Gym Facilities</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🏋️‍♂️ Heavy Weight Zone</h3>
-                <p>Import quality dumbbells, squat racks, bench press aur modern cable machines muscle growth ke liye.</p>
+        <h2 class="section-title">World-Class Gym Facilities</h2>
+        <p class="section-subtitle">Humare gym mein aapko milti hai शहर ki sabse modern machines aur international standard ki training suvidhayein.</p>
+        
+        <div class="facility-grid">
+            <!-- Facility 1 -->
+            <div class="facility-card">
+                <div class="facility-img-box">
+                    <span class="facility-tag">Muscle Building</span>
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80" alt="Heavy Weight Arena">
+                </div>
+                <div class="facility-content">
+                    <h3>🏋️‍♂️ Pro Strength & Free Weights</h3>
+                    <p>Heavy lifting aur rapid muscle growth ke liye international standard ka dedicated iron zone.</p>
+                    <ul class="facility-specs">
+                        <li><span>✔</span> 2.5 kg se 50 kg tak Pure Rubber Dumbbells</li>
+                        <li><span>✔</span> Olympic Squat Racks, Smith & Bench Press</li>
+                        <li><span>✔</span> 8-Station Commercial Cable Crossover</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <h3>🏃‍♂️ Cardio & Stamina</h3>
-                <p>High-speed treadmills, spin bikes aur cross-trainers tezi se fat burn aur stamina badhane ke liye.</p>
+
+            <!-- Facility 2 -->
+            <div class="facility-card">
+                <div class="facility-img-box">
+                    <span class="facility-tag">Fat Burn & Stamina</span>
+                    <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=700&q=80" alt="Cardio Studio">
+                </div>
+                <div class="facility-content">
+                    <h3>🏃‍♂️ Advanced Cardio Theatre</h3>
+                    <p>Stamina badhane aur tezi se weight loss karne ke liye digital heart-rate monitoring machines.</p>
+                    <ul class="facility-specs">
+                        <li><span>✔</span> Heavy-Duty Auto-Incline AC Treadmills</li>
+                        <li><span>✔</span> Elliptical Cross-Trainers & Stair Climbers</li>
+                        <li><span>✔</span> Commercial Spin Bikes & Rowing Machines</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <h3>🥊 Boxing & Personal Care</h3>
-                <p>Heavy punching bags, core workout mat area aur beginner se advanced diet & workout chart.</p>
+
+            <!-- Facility 3 -->
+            <div class="facility-card">
+                <div class="facility-img-box">
+                    <span class="facility-tag">Power & Agility</span>
+                    <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=700&q=80" alt="Boxing & Crossfit">
+                </div>
+                <div class="facility-content">
+                    <h3>🥊 Boxing, MMA & CrossFit Zone</h3>
+                    <p>Punching power, explosive strength aur core fitness ke liye special functional training floor.</p>
+                    <ul class="facility-specs">
+                        <li><span>✔</span> Pro Leather Heavy Punching Bags & Gloves</li>
+                        <li><span>✔</span> Battle Ropes, Kettlebells & Medicine Balls</li>
+                        <li><span>✔</span> Pull-up Rigs, Tyre Flip & HIIT Turf Area</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Facility 4 -->
+            <div class="facility-card">
+                <div class="facility-img-box">
+                    <span class="facility-tag">Expert Coaching</span>
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=700&q=80" alt="Personal Training">
+                </div>
+                <div class="facility-content">
+                    <h3>🎯 Certified Personal Trainers</h3>
+                    <p>Beginners se lekar advanced athletes tak, har member ke liye सही posture aur injury-free workout.</p>
+                    <ul class="facility-specs">
+                        <li><span>✔</span> 1-on-1 Personal Transformation Coaching</li>
+                        <li><span>✔</span> Weekly Body Fat & Muscle Checkup</li>
+                        <li><span>✔</span> Custom Split Workout Blueprint</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Facility 5 -->
+            <div class="facility-card">
+                <div class="facility-img-box">
+                    <span class="facility-tag">Diet & Nutrition</span>
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=80" alt="Nutrition Guidance">
+                </div>
+                <div class="facility-content">
+                    <h3>🥗 Diet Chart & Nutrition Desk</h3>
+                    <p>Sirf workout nahi, ghar ke khane se muscle gain aur fat loss karne ka poora scientific diet plan.</p>
+                    <ul class="facility-specs">
+                        <li><span>✔</span> Budget-Friendly Veg & Non-Veg Diet Charts</li>
+                        <li><span>✔</span> Pre-Workout & Post-Workout Meal Guide</li>
+                        <li><span>✔</span> 100% Authentic Supplement Guidance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Facility 6 -->
+            <div class="facility-card">
+                <div class="facility-img-box">
+                    <span class="facility-tag">Premium Comfort</span>
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=700&q=80" alt="Luxury Gym Interior">
+                </div>
+                <div class="facility-content">
+                    <h3>❄️ AC Floor, Lockers & Pro Audio</h3>
+                    <p>Hygienic, energetic aur safe environment jahan aapko workout karne mein roz maza aayega.</p>
+                    <ul class="facility-specs">
+                        <li><span>✔</span> Fully Air-Conditioned & Sanitized Gym Floor</li>
+                        <li><span>✔</span> High-Bass Surround Sound Music System</li>
+                        <li><span>✔</span> Secure Lockers, Changing Room & Chilled RO Water</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -461,14 +733,16 @@
     <!-- Membership Plans -->
     <section id="plans">
         <h2 class="section-title">Membership Plans</h2>
+        <p class="section-subtitle">Apne goal ke hisaab se plan chunein aur bina kisi extra admission fee ke aaj hi shuru karein.</p>
         <div class="grid">
             <div class="card">
                 <h3>Monthly Plan</h3>
                 <div class="price">₹800 <span>/ 1 Month</span></div>
                 <ul class="features-list">
-                    <li>✔️ Full Gym & Weight Access</li>
-                    <li>✔️ Morning & Evening Slot</li>
-                    <li>✔️ General Trainer Support</li>
+                    <li>✔️ Full Strength & Weight Access</li>
+                    <li>✔️ Morning & Evening Timing</li>
+                    <li>✔️ General Floor Trainer Support</li>
+                    <li>✔️ Locker & RO Water Facility</li>
                 </ul>
                 <button class="btn" style="width:100%;" onclick="choosePlan('800')">Select ₹800 Plan</button>
             </div>
@@ -478,20 +752,22 @@
                 <h3>Quarterly Plan</h3>
                 <div class="price">₹2,000 <span>/ 3 Months</span></div>
                 <ul class="features-list">
-                    <li>✔️ Full Gym + Cardio Access</li>
+                    <li>✔️ Full Gym + Cardio + Boxing Access</li>
                     <li>✔️ Free Personalized Diet Chart</li>
-                    <li>✔️ Direct ₹400 Discount!</li>
+                    <li>✔️ Monthly BMI & Progress Tracking</li>
+                    <li>✔️ Direct ₹400 Cash Discount!</li>
                 </ul>
                 <button class="btn" style="width:100%;" onclick="choosePlan('2000')">Select ₹2,000 Plan</button>
             </div>
 
             <div class="card">
-                <h3>Yearly Pro Plan</h3>
+                <h3>Yearly VIP Plan</h3>
                 <div class="price">₹7,000 <span>/ 12 Months</span></div>
                 <ul class="features-list">
-                    <li>✔️ Complete VIP Gym Access</li>
-                    <li>✔️ Special Strength & Boxing Guide</li>
-                    <li>✔️ Maximum Savings (Save ₹2,600)</li>
+                    <li>✔️ Complete All-Access VIP Pass</li>
+                    <li>✔️ Personal Transformation Guidance</li>
+                    <li>✔️ Custom Diet + Workout Blueprint</li>
+                    <li>✔️ Mega Savings (Save ₹2,600!)</li>
                 </ul>
                 <button class="btn" style="width:100%;" onclick="choosePlan('7000')">Select ₹7,000 Plan</button>
             </div>
@@ -501,6 +777,7 @@
     <!-- BMI Calculator -->
     <section id="bmi">
         <h2 class="section-title">Fitness BMI Calculator</h2>
+        <p class="section-subtitle">Apna Weight aur Height daal kar check karein ki aapke liye kaunsa gym plan best rahega.</p>
         <div class="interactive-box">
             <div class="form-group">
                 <label>Weight (kg mein):</label>
@@ -515,13 +792,14 @@
         </div>
     </section>
 
-    <!-- Online Subscription & Payment Gateway -->
+    <!-- Online Subscription & Direct App Payment Gateway -->
     <section id="join">
-        <h2 class="section-title">Subscription & Instant Payment</h2>
+        <h2 class="section-title">Online Subscription & Payment</h2>
+        <p class="section-subtitle">Apna naam aur number bharein, phir seedha PhonePe, Google Pay ya Paytm se payment karke membership card payein.</p>
         <div class="interactive-box">
             <div class="form-group">
                 <label>Member Full Name *</label>
-                <input type="text" id="memberName" placeholder="Apna poora naam likhein">
+                <input type="text" id="memberName" placeholder="Apna poora naam likhein" oninput="refreshPaymentDetails()">
             </div>
             <div class="form-group">
                 <label>Mobile Number *</label>
@@ -539,28 +817,37 @@
             <button class="btn btn-pay" onclick="initiatePayment()">Proceed to Pay ₹<span id="btnAmountText">2000</span> 💳</button>
             <div id="formAlert" class="result-box"></div>
 
-            <!-- Live Payment Checkout Box -->
+            <!-- Live Payment Checkout Box (With Direct Android App Intents) -->
             <div id="paymentGatewayBox" class="payment-gateway-box">
-                <h3 style="color: var(--success); margin-bottom: 6px;">🔒 Secure UPI Payment</h3>
-                <p style="font-size: 14px; color: #ccc;">Payable Amount: <strong style="color:#fff; font-size:18px;">₹<span id="checkoutAmount">2000</span></strong></p>
+                <h3 style="color: var(--success); margin-bottom: 4px;">🔒 Instant UPI Payment</h3>
+                <p style="font-size: 14px; color: #ccc;">Payable Amount: <strong style="color:#fff; font-size:20px;">₹<span id="checkoutAmount">2000</span></strong></p>
 
-                <p style="font-size: 13px; color: #aaa; margin-top: 12px;">1. Phone mein App kholne ke liye niche click karein:</p>
+                <p style="font-size: 13px; color: #ffb400; margin-top: 12px; font-weight: 600;">👇 Apna Payment App chunein (Click karte hi App khulega):</p>
+                
+                <!-- Direct Native Links for Android Chrome -->
                 <div class="upi-apps">
-                    <button type="button" class="upi-btn phonepe-btn" onclick="openUPIApp()">🟣 PhonePe</button>
-                    <button type="button" class="upi-btn gpay-btn" onclick="openUPIApp()">🔵 Google Pay</button>
-                    <button type="button" class="upi-btn paytm-btn" onclick="openUPIApp()">🔵 Paytm UPI</button>
+                    <a id="phonepeLink" href="#" class="upi-btn phonepe-btn">🟣 Open PhonePe</a>
+                    <a id="gpayLink" href="#" class="upi-btn gpay-btn">🔵 Open Google Pay</a>
+                    <a id="paytmLink" href="#" class="upi-btn paytm-btn">🔵 Open Paytm</a>
+                    <a id="universalUpiLink" href="#" class="upi-btn any-upi-btn">⚡ Any UPI App</a>
                 </div>
 
-                <p style="font-size: 13px; color: #aaa; margin-top: 10px;">2. Ya kisi bhi UPI App se yeh QR Code Scan karein:</p>
+                <!-- Copy UPI ID Fallback -->
+                <div class="upi-id-bar">
+                    <span>Gym UPI ID: <strong id="displayUpiId" style="color:var(--success);"></strong></span>
+                    <button type="button" class="copy-btn" onclick="copyUpiId()">Copy ID</button>
+                </div>
+
+                <p style="font-size: 13px; color: #aaa; margin-top: 10px;">Ya is QR Code ka Screenshot lekar PhonePe/GPay mein Scan karein:</p>
                 <div class="qr-wrapper">
                     <img id="upiQrImage" src="" alt="Scan to Pay QR">
                 </div>
 
-                <div class="form-group" style="margin-top: 12px; text-align: left;">
-                    <label>Payment karne ke baad UTR / Ref No. ke last 4 digit daalein:</label>
-                    <input type="text" id="utrNumber" maxlength="12" placeholder="Ex: 4829 (Verification ke liye)">
+                <div class="form-group" style="margin-top: 14px; text-align: left;">
+                    <label>Payment ke baad Transaction / UTR ke last 4 digit yahan daalein *</label>
+                    <input type="text" id="utrNumber" maxlength="12" placeholder="Ex: 6392">
                 </div>
-                <button type="button" class="btn" style="width: 100%; background: var(--success); color:#000;" onclick="confirmSubscription()">Verify & Activate Membership ✅</button>
+                <button type="button" class="btn" style="width: 100%; background: var(--success); color:#000;" onclick="confirmSubscription()">Verify & Download Membership Card ✅</button>
             </div>
 
             <!-- Digital Receipt Box -->
@@ -570,7 +857,8 @@
 
     <!-- Rating & Feedback System -->
     <section id="feedback">
-        <h2 class="section-title">Member Ratings & Feedback</h2>
+        <h2 class="section-title">Member Ratings & Reviews</h2>
+        <p class="section-subtitle">Dekhiye humare members Anash Gym Center ke baare mein kya kehte hain, aur apna experience share karein.</p>
         <div class="interactive-box">
             <div class="rating-summary">
                 <div style="font-size: 24px; font-weight: bold; color: #ffb400;" id="avgRatingDisplay">⭐ 5.0 / 5.0</div>
@@ -595,7 +883,7 @@
 
             <div class="form-group">
                 <label>Aapka Feedback / Review *</label>
-                <textarea id="reviewMessage" rows="3" placeholder="Anash Gym Center ke baare mein apna experience likhein..."></textarea>
+                <textarea id="reviewMessage" rows="3" placeholder="Gym ki machines aur environment kaisa laga?"></textarea>
             </div>
 
             <button class="btn" style="width: 100%;" onclick="addFeedback()">Submit Review ⭐</button>
@@ -608,21 +896,20 @@
 
     <!-- Footer -->
     <footer>
-        <p style="color:#fff; font-weight:bold; margin-bottom:6px;">📍 ANASH GYM CENTER</p>
-        <p>Timing: Morning 5:30 AM – 10:30 AM | Evening 4:30 PM – 10:00 PM (Sunday Closed)</p>
+        <p style="color:#fff; font-weight:bold; font-size: 18px; margin-bottom:6px;">📍 ANASH GYM CENTER</p>
+        <p>Morning: 5:30 AM – 10:30 AM | Evening: 4:30 PM – 10:00 PM (Sunday Rest Day)</p>
         <p style="margin-top: 10px; font-size: 13px;">&copy; 2026 Anash Gym Center. All Rights Reserved.</p>
     </footer>
 
     <!-- Complete Error-Free JavaScript -->
     <script>
-        // ==========================================
-        // GYM OWNER UPI SETTING (Yahan apni asli UPI ID daal sakte hain)
-        // ==========================================
+        // =========================================================================
+        // GYM OWNER UPI SETTING: Yahan "9876543210@ybl" ki jagah apni asli PhonePe/GPay UPI ID likhein
+        // =========================================================================
         const GYM_UPI_ID = "anashgymcenter@ybl";
         const GYM_NAME = "Anash Gym Center";
 
         let selectedRating = 5;
-        let currentUpiUrl = "";
 
         // 1. Plan Selection from Cards
         function choosePlan(amountVal) {
@@ -632,26 +919,52 @@
             document.getElementById('join').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 2. Refresh Amount on Dropdown Change
+        // 2. Refresh Amount & Update App Links
         function refreshPaymentDetails() {
             const amount = document.getElementById('memberPlan').value;
             document.getElementById('btnAmountText').innerText = amount;
             document.getElementById('checkoutAmount').innerText = amount;
-
-            const gatewayBox = document.getElementById('paymentGatewayBox');
-            if (gatewayBox.style.display === 'block') {
-                buildUpiLinks(amount);
-            }
+            buildUpiLinks(amount);
         }
 
-        // 3. Build UPI Intent & QR Code
+        // 3. Build Direct Android Intent Links for PhonePe, GPay, Paytm & QR
         function buildUpiLinks(amount) {
-            const name = document.getElementById('memberName').value.trim() || "Member";
+            const name = document.getElementById('memberName').value.trim() || "Gym Member";
             const note = `Anash Gym Plan Rs ${amount} - ${name}`;
-            currentUpiUrl = `upi://pay?pa=${encodeURIComponent(GYM_UPI_ID)}&pn=${encodeURIComponent(GYM_NAME)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(note)}`;
+            
+            const queryParams = `pa=${encodeURIComponent(GYM_UPI_ID)}&pn=${encodeURIComponent(GYM_NAME)}&am=${encodeURIComponent(amount)}&cu=INR&tn=${encodeURIComponent(note)}`;
 
+            // Universal UPI URI
+            const standardUpiUrl = `upi://pay?${queryParams}`;
+
+            // Android Chrome Direct Package Intents (Forces specific app to open immediately)
+            const phonepeIntent = `intent://pay?${queryParams}#Intent;scheme=upi;package=com.phonepe.app;end`;
+            const gpayIntent = `intent://pay?${queryParams}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+            const paytmIntent = `intent://pay?${queryParams}#Intent;scheme=upi;package=net.one97.paytm;end`;
+
+            // Detect if user is on Android
+            const isAndroid = /Android/i.test(navigator.userAgent);
+
+            document.getElementById('phonepeLink').href = isAndroid ? phonepeIntent : `phonepe://pay?${queryParams}`;
+            document.getElementById('gpayLink').href = isAndroid ? gpayIntent : `tez://upi/pay?${queryParams}`;
+            document.getElementById('paytmLink').href = isAndroid ? paytmIntent : `paytmmp://pay?${queryParams}`;
+            document.getElementById('universalUpiLink').href = standardUpiUrl;
+
+            document.getElementById('displayUpiId').innerText = GYM_UPI_ID;
+
+            // Update QR Code
             const qrImg = document.getElementById('upiQrImage');
-            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUpiUrl)}`;
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(standardUpiUrl)}`;
+        }
+
+        // Copy UPI ID helper
+        function copyUpiId() {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(GYM_UPI_ID);
+                alert("UPI ID Copied: " + GYM_UPI_ID);
+            } else {
+                alert("Gym UPI ID: " + GYM_UPI_ID);
+            }
         }
 
         // 4. Validate Form & Open Payment Checkout
@@ -667,7 +980,7 @@
             if (name.length < 2) {
                 alertBox.style.display = 'block';
                 alertBox.style.color = '#ff4500';
-                alertBox.innerHTML = '⚠️ Kripya apna sahi Naam likhein!';
+                alertBox.innerHTML = '⚠️ Kripya pehle apna Naam likhein!';
                 return;
             }
 
@@ -686,16 +999,7 @@
             gatewayBox.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 5. Open PhonePe / GPay / Paytm App Directly
-        function openUPIApp() {
-            if (!currentUpiUrl) {
-                const amount = document.getElementById('memberPlan').value;
-                buildUpiLinks(amount);
-            }
-            window.location.href = currentUpiUrl;
-        }
-
-        // 6. Verify UTR & Generate Membership Card
+        // 5. Verify UTR & Generate Membership Card
         function confirmSubscription() {
             const name = document.getElementById('memberName').value.trim();
             const phone = document.getElementById('memberPhone').value.trim();
@@ -705,7 +1009,7 @@
             const receiptBox = document.getElementById('membershipReceipt');
 
             if (utr.length < 4) {
-                alert('Kripya payment ke baad kam se kam 4-digit ka Transaction / UTR number zaroor daalein!');
+                alert('⚠️ Kripya payment karne ke baad kam se kam 4-digit ka Transaction / UTR number zaroor daalein!');
                 return;
             }
 
@@ -718,16 +1022,16 @@
             receiptBox.innerHTML = `
                 <div style="color: #00e676; font-size: 18px; margin-bottom: 8px;">🎉 Membership Activated Successfully!</div>
                 <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Member ID:</strong> ${memberId}</p>
-                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Name:</strong> ${name}</p>
-                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Phone:</strong> ${phone}</p>
-                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Plan:</strong> ${planText}</p>
-                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Payment Ref (UTR):</strong> ${utr}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Name:</strong> ${escapeHTML(name)}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Phone:</strong> ${escapeHTML(phone)}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Plan:</strong> ${escapeHTML(planText)}</p>
+                <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Payment UTR Ref:</strong> ${escapeHTML(utr)}</p>
                 <p style="font-size: 14px; font-weight: normal; margin: 4px 0;"><strong>Date:</strong> ${today}</p>
-                <p style="font-size: 12px; color: #aaa; margin-top: 8px;">📸 Iska screenshot le lein aur gym reception par dikhayein.</p>
+                <p style="font-size: 12px; color: #ffb400; margin-top: 8px;">📸 Iska screenshot le lein aur Anash Gym reception par dikhayein.</p>
             `;
         }
 
-        // 7. BMI Calculator Logic
+        // 6. BMI Calculator Logic
         function calculateBMI() {
             const w = parseFloat(document.getElementById('weightInput').value);
             const hCm = parseFloat(document.getElementById('heightInput').value);
@@ -761,10 +1065,10 @@
             out.innerHTML = `Aapka BMI Score: ${bmi} <br> Advice: ${category}`;
         }
 
-        // 8. Star Rating & Permanent LocalStorage Feedback System
+        // 7. Star Rating & Permanent LocalStorage Feedback System
         const defaultReviews = [
-            { name: "Aman Verma", rating: 5, text: "Anash Gym Center ka environment aur machines ekdam top class hain!", date: "Verified Member" },
-            { name: "Rohit Kumar", rating: 5, text: "3 months wala plan liya hai, cardio aur heavy weights dono best hain.", date: "Verified Member" }
+            { name: "Aman Verma", rating: 5, text: "Anash Gym Center ka نیا look aur imported machines ekdam top class hain!", date: "Verified Member" },
+            { name: "Rohit Kumar", rating: 5, text: "3 months wala plan liya hai, cardio theatre aur heavy weights dono best hain.", date: "Verified Member" }
         ];
 
         function selectStar(starCount) {
@@ -860,8 +1164,9 @@
             });
         }
 
-        // Initialize Reviews on Page Load
+        // Initialize on Page Load
         window.onload = function() {
+            buildUpiLinks(document.getElementById('memberPlan').value);
             renderReviews();
         };
     </script>
